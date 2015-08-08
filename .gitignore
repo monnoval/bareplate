@@ -1,0 +1,25 @@
+## General
+.cvs
+.htaccess
+.svn
+*.bak
+*.log
+*.swp
+
+## Windows
+Desktop.ini
+Thumbs.db
+
+## Mac
+.DS_Store
+
+## WordPress
+sitemap.xml
+sitemap.xml.gz
+
+## Development
+.sass-cache
+bower_components
+node_modules
+build
+dist
