@@ -27,7 +27,7 @@ function bareplate_js() {
   wp_register_script(   'jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery' .( $GLOBALS['bareplate_minify'] ? '.min':'' ). '.js', array(), '1.11.1', true );
   wp_enqueue_script(    'jquery' );
 
-  wp_register_script( 'bareplate', get_template_directory_uri() . '/js/core' .( $GLOBALS['bareplate_minify'] ? '.min':'' ). '.js', array(), '', true );
+  wp_register_script( 'bareplate', bareplate_tpl_uri( 'js/core' .( $GLOBALS['bareplate_minify'] ? '.min':'' ). '.js' ), array(), '', true );
   wp_enqueue_script(  'bareplate' );
 }
 
@@ -37,7 +37,7 @@ function bareplate_js() {
 function bareplate_css() {
   $style_name = 'style';
   $style_name = $style_name . ( $GLOBALS['bareplate_minify'] ? '.min':'' ) . '.css';
-  wp_enqueue_style( 'bareplate', get_template_directory_uri() . '/' . $style_name );
+  wp_enqueue_style( 'bareplate', bareplate_tpl_uri( $style_name ) );
 }
 
 
@@ -63,7 +63,7 @@ function bareplate_tpl_single( $name, $post_type ) {
 }
 
 function bareplate_tpl_page( $name ) {
-  if ( is_page_template( get_folder_path( $name, 'php' ) ) )
+  if ( is_page_template( bareplate_tpl_path( $name, 'php' ) ) )
     bareplate_tpl_assets( $name );
 }
 
@@ -79,7 +79,7 @@ function bareplate_tpl_taxonomy( $name, $taxonomy ) {
  */
 function bareplate_tpl_assets( $name ) {
 
-  wp_enqueue_style(  $name, get_template_uri( get_folder_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.css' ) ) );
-  wp_enqueue_script( $name, get_template_uri( get_folder_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.js' ) ), array(), '', true );
+  wp_enqueue_style(  $name, bareplate_tpl_uri( bareplate_tpl_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.css' ) ) );
+  wp_enqueue_script( $name, bareplate_tpl_uri( bareplate_tpl_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.js' ) ), array(), '', true );
 
 }
