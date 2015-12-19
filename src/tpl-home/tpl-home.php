@@ -4,17 +4,21 @@ Template Name: Homepage
 */
 
 get_header(); ?>
-<div id="content" class="content">
 
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-  <div class="site__main" role="main">
-  <div class="site--wrapper">
-    <?php while ( have_posts() ) : the_post(); ?>
-      <?php get_template_part( 'content', 'page' ); ?>
-    <?php endwhile; // end of the loop. ?>
-  </div>
-  </div>
+			<?php
+			while ( have_posts() ) : the_post();
 
+				get_template_part( 'template-parts/content', 'page' );
 
-</div>
-<?php get_footer(); ?>
+			endwhile; // End of the loop.
+			?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php
+get_footer();
+

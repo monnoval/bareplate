@@ -7,6 +7,7 @@ tasks  = [ 'core-css'
          , 'images'
          , 'languages'
          , 'fonts'
+         , 'mobile'
          , 'php'
          ];
 

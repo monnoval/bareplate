@@ -2,23 +2,28 @@
 /**
  * The template for displaying all single posts.
  *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
  * @package bareplate
  */
 
 get_header(); ?>
-<div id="content" class="content site--wrapper">
 
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-<div id="primary" class="content__area">
-  <main id="main" class="content__main" role="main">
+		<?php
+		while ( have_posts() ) : the_post();
 
-  <?php while ( have_posts() ) : the_post(); ?>
-    <?php get_template_part( 'content', 'single' ); ?>
-  <?php endwhile; // end of the loop. ?>
+			get_template_part( 'template-parts/content', get_post_format() );
 
-  </main><!-- #main -->
-</div><!-- #primary -->
+			the_post_navigation();
 
+		endwhile; // End of the loop.
+		?>
 
-</div>
-<?php get_footer(); ?>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php
+get_footer();

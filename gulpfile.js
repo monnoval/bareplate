@@ -10,6 +10,8 @@
   when you run `gulp`.
 */
 
+// require("time-require");
+
 gulp = require('gulp');
 argv = require('yargs').argv;
 
@@ -26,12 +28,12 @@ if (argv.clean) {
 
   browserSync = require('browser-sync').create();
   var requireDir = require('require-dir');
-  requireDir('./gulp/dev-tasks', { recurse: true });
+  requireDir('./gulp/dev', { recurse: true });
 
 } else if (argv.prod) {
 
   var requireDir = require('require-dir');
-  requireDir('./gulp/prod-tasks', { recurse: true });
+  requireDir('./gulp/prod', { recurse: true });
 
   run = require('run-sequence');
   gulp.task('default', ['watch']);
@@ -39,7 +41,7 @@ if (argv.clean) {
 } else if (argv.upload) {
 
   var requireDir = require('require-dir');
-  requireDir('./gulp/prod-tasks', { recurse: true });
+  requireDir('./gulp/prod', { recurse: true });
 
   run = require('run-sequence');
   gulp.task('default', function(callback) {

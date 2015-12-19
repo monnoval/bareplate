@@ -1,5 +1,5 @@
-#=require ../../bower_components/imagesloaded.pkgd.min/index.js
-#=require ../../bower_components/isotope.pkgd.min/index.js
+#=include ../../bower/imagesloaded.pkgd.min/index.js
+#=include ../../bower/isotope.pkgd.min/index.js
 
 
 $( document ).ready(function() {

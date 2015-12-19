@@ -2,11 +2,12 @@ source = require('../config').source;
 build  = require('../config').dist;
 bower  = require('../config').bower;
 tpl    = [];
-tasks  = [ 'core-css-min'
+tasks  = [ 'core-css'
          , 'core-js-min'
          , 'images'
          , 'languages'
          , 'fonts'
+         , 'mobile'
          , 'php'
          ];
 
@@ -18,6 +19,11 @@ lazypipe     = require('lazypipe');
 sass         = require('gulp-sass');
 autoprefixer = require('gulp-autoprefixer');
 rename       = require('gulp-rename');
+
+minifyCss = require('gulp-minify-css');
+css_min = lazypipe()
+  .pipe(rename, {suffix: '.min'})
+  .pipe(minifyCss, { keepSpecialComments: 1 });
 
 css_sass = lazypipe()
   .pipe(sass, {includePaths: [bower, source+'scss'], errLogToConsole: true})

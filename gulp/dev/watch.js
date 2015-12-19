@@ -5,6 +5,7 @@ gulp.task('watch', ['browser-sync'], function() {
   gulp.watch(source+'**/*(*.png|*.jpg|*.jpeg|*.gif)', ['images']);
   gulp.watch([source+'**/*.php', '!'+source+'tpl-*/*.php'], ['php']);
   gulp.watch(source+'languages/*.pot', ['languages']);
+  gulp.watch(source+'mobile/**/*.*', ['mobile']);
 
   tpl_watch = function( dir ) {
     tpl_php( dir );

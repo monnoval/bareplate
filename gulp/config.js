@@ -5,14 +5,14 @@ var project = 'bareplate'
 module.exports = {
   project: project,
   source:  './src/',
-  bower:   './bower_components/',
+  bower:   './bower/',
   build:   './build/',
   dist:    './dist/',
   proxy:   proxy,
   site: {
     host: "your.host.name",
     user: "yourUsername",
-    key: "/path/to/your/.ssh/key.ppk",
+    key: "/path/to/your/.ssh/key",
     remotePath: "/remote/path/wp-content/theme/" + project
   }
 };
