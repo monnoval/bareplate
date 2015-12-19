@@ -21,7 +21,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-  <header id="masthead" class="header" role="banner">
+	<header id="masthead" class="header" role="banner">
 
 		<div class="header__nav">
 			<div class="site--wrapper clearfix">
@@ -31,11 +31,7 @@
 				</div>
 				<div class="header__menu header__menu--primary js__header__menu_primary">
 					<nav id="site-navigation" class="header__menu-nav header__menu-nav--primary" role="navigation">
-						<?php wp_nav_menu( array(
-							'theme_location' => 'primary',
-									'menu_class' => 'menu__ul',
-									'fallback_cb' => false
-						) ); ?>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'menu__ul', ) ) ?>
 					</nav>
 				</div>
 			</div>

@@ -3,7 +3,7 @@ gulp.task('replace-enqueue', function(){
 
   var replace = require('gulp-replace');
   gulp.src(source+'inc/enqueue.php')
-    .pipe(replace(/\$min \= false/g, '$min = true'))
+    .pipe(replace(/\$bareplate_minify \= false/g, '$bareplate_minify = true'))
     .pipe(gulp.dest(build+'inc'));
 
 });

@@ -1,5 +1,7 @@
 <?php
 
+$bareplate_minify = false;
+
 /**
  * Enqueue styles and scripts
  */
@@ -8,8 +10,8 @@ function bareplate_scripts() {
   bareplate_js();
   bareplate_css();
 
-  page_template( 'tpl-home' );
-  page_template( 'tpl-location' );
+  bareplate_tpl_page( 'tpl-home' );
+  bareplate_tpl_page( 'tpl-location' );
 
 }
 add_action( 'wp_enqueue_scripts', 'bareplate_scripts' );
@@ -19,14 +21,14 @@ add_action( 'wp_enqueue_scripts', 'bareplate_scripts' );
  * Base scripts
  */
 function bareplate_js() {
-  $min = false;
+
   wp_dequeue_script(    'jquery' );
   wp_deregister_script( 'jquery' );
-  wp_register_script(   'jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery' .( $min ? '.min':'' ). '.js#defer', array(), '1.11.1', true );
+  wp_register_script(   'jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery' .( $GLOBALS['bareplate_minify'] ? '.min':'' ). '.js', array(), '1.11.1', true );
   wp_enqueue_script(    'jquery' );
 
-  wp_register_script( 'bare-core', get_template_directory_uri() . '/js/core' .( $min ? '.min':'' ). '.js#defer', array(), '', true );
-  wp_enqueue_script(  'bare-core' );
+  wp_register_script( 'bareplate', get_template_directory_uri() . '/js/core' .( $GLOBALS['bareplate_minify'] ? '.min':'' ). '.js', array(), '', true );
+  wp_enqueue_script(  'bareplate' );
 }
 
 /**
@@ -34,9 +36,7 @@ function bareplate_js() {
  */
 function bareplate_css() {
   $style_name = 'style';
-
-  $min = false;
-  $style_name = $style_name . ( $min ? '.min':'' ) . '.css';
+  $style_name = $style_name . ( $GLOBALS['bareplate_minify'] ? '.min':'' ) . '.css';
   wp_enqueue_style( 'bareplate', get_template_directory_uri() . '/' . $style_name );
 }
 
@@ -44,65 +44,42 @@ function bareplate_css() {
 /**
  * Template types
  */
-function page_default( $name ) {
+function bareplate_tpl_page_default( $name ) {
   global $post;
   if ( is_singular( 'page' ) && get_page_template_slug( $post->ID ) == "" ) {
-    post_assets( $name );
+    bareplate_tpl_assets( $name );
   }
 }
 
-function error_template( $name ) {
+function bareplate_tpl_404( $name ) {
   if ( is_404() )
-    post_assets( $name );
+    bareplate_tpl_assets( $name );
 }
 
-function single_template( $name, $post_type ) {
+function bareplate_tpl_single( $name, $post_type ) {
   global $post;
   if ( $post->post_type == $post_type )
-    post_assets( $name . '-' . $post_type );
+    bareplate_tpl_assets( $name . '-' . $post_type );
 }
 
-
-function page_template( $name ) {
+function bareplate_tpl_page( $name ) {
   if ( is_page_template( get_folder_path( $name, 'php' ) ) )
-    post_assets( $name );
+    bareplate_tpl_assets( $name );
 }
 
 
-function taxonomy_template( $name, $taxonomy ) {
+function bareplate_tpl_taxonomy( $name, $taxonomy ) {
   if ( get_query_var('taxonomy') == $taxonomy )
-    post_assets( $name );
+    bareplate_tpl_assets( $name );
 }
 
 
 /**
- * Template enqueue
+ * Template assets
  */
-function post_assets( $name ) {
+function bareplate_tpl_assets( $name ) {
 
-  $min = false;
-  wp_enqueue_style(  $name, get_template_uri( get_folder_path( $name, ( $min ? 'min':'' ). '.css' ) ) );
-  wp_enqueue_script( $name, get_template_uri( get_folder_path( $name, ( $min ? 'min':'' ). '.js#defer' ) ), array(), '', true );
+  wp_enqueue_style(  $name, get_template_uri( get_folder_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.css' ) ) );
+  wp_enqueue_script( $name, get_template_uri( get_folder_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.js' ) ), array(), '', true );
 
 }
-
-
-/**
- * Add async/defer to script tag
- */
-function bareplate_add_async($url) {
-  if (strpos($url, '#async')===false && strpos($url, '#defer')===false) {
-    return $url;
-  } else if (is_admin()) {
-    $output = str_replace('#async', '', $url);
-    $output = str_replace('#defer', '', $output);
-    return $output;
-  } else {
-    if (strpos($url,'#async') !== false) {
-      return str_replace('#async', '', $url)."' async x='";
-    } else if (strpos($url,'#defer') !== false) {
-      return str_replace('#defer', '', $url)."' defer x='";
-    }
-  }
-}
-add_filter('clean_url', 'bareplate_add_async', 11, 1);

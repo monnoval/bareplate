@@ -1,5 +1,5 @@
 var project = 'bareplate'
-  , proxy   = 'localhost/' + project
+  , proxy   = project + '.dev'
 ;
 
 module.exports = {
