@@ -4,12 +4,26 @@
 // Based from
 // https://github.com/inuitcss/settings.defaults/blob/master/_settings.defaults.scss
 
+// Based from
+// bower/bower-bourbon/addons/_font-family.scss
+
+$font-georgia:       Georgia, Cambria, "Times New Roman", Times, serif;
+$font-helvetica:     "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-lucida-grande: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$font-monospace:     "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+$font-verdana:       Verdana, Geneva, sans-serif;
+
 
 // High-level base settings.
 
+$base-font-family: Roboto, $font-helvetica !default;
+$base-font-weight: regular !default;
 $base-font-size:   16px  !default;
 $base-line-height: 24px  !default;
 $base-site-width:  1020px !default;
+
+$base-heading-font-family: Roboto Slab, $font-helvetica !default;
+$base-heading-font-weight: semibold;
 
 
 // These variables are framework variables, sourced from variables defined
@@ -20,13 +34,4 @@ $base-spacing-unit:           $base-line-height;
 $base-spacing-unit--small:    round($base-spacing-unit / 2);
 $base-spacing-unit--large:    round($base-spacing-unit * 2);
 
-
-// Based from
-// bower/bower-bourbon/addons/_font-family.scss
-
-$font-georgia:       Georgia, Cambria, "Times New Roman", Times, serif;
-$font-helvetica:     "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-$font-lucida-grande: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
-$font-monospace:     "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-$font-verdana:       Verdana, Geneva, sans-serif;
 

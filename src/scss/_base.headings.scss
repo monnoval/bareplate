@@ -21,8 +21,8 @@ h4, .delta,
 h5, .epsilon,
 h6, .zeta {
   color: $color-gray;
-  text-transform: uppercase;
-  @include font-weight($heading-weight);
+  font-family: $base-heading-font-family;
+  @include font-weight( $base-heading-font-weight );
 }
 
 h1,

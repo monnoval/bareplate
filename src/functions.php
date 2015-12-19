@@ -130,7 +130,13 @@ add_action( 'init', 'bareplate_disable_wp_emojicons' );
 /**
  * Enqueue scripts and styles.
  */
-require get_template_directory() . '/inc/enqueue.php';
+require get_template_directory() . '/inc/bareplate-assets.php';
+
+
+/**
+ * Append fonts in header
+ */
+require get_template_directory() . '/inc/bareplate-fonts.php';
 
 
 /**
