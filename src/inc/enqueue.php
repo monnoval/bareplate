@@ -83,3 +83,23 @@ function bareplate_tpl_assets( $name ) {
   wp_enqueue_script( $name, bareplate_tpl_uri( bareplate_tpl_path( $name, ( $GLOBALS['bareplate_minify'] ? 'min':'' ). '.js' ) ), array(), '', true );
 
 }
+
+
+/**
+ * Template paths
+ */
+function bareplate_tpl_path( $name, $ext ) {
+
+  if ( substr( $ext, 0, 1 ) === '-' ||
+       substr( $ext, 0, 1 ) === '.' )
+    $path = trailingslashit( $name ) . $name . $ext;
+  else
+    $path = trailingslashit( $name ) . $name . '.' . $ext;
+
+  return $path;
+
+}
+
+function bareplate_tpl_uri( $path ) {
+  return trailingslashit( get_stylesheet_directory_uri() ) . $path;
+}

@@ -101,7 +101,7 @@ add_filter('show_admin_bar', '__return_false');
 /**
  * Disable emoji feature introduced in Wordpresss 4.2
  */
-function disable_emojicons_tinymce( $plugins ) {
+function bareplate_disable_emojicons_tinymce( $plugins ) {
   if ( is_array( $plugins ) ) {
     return array_diff( $plugins, array( 'wpemoji' ) );
   } else {
@@ -110,7 +110,7 @@ function disable_emojicons_tinymce( $plugins ) {
 }
 
 
-function disable_wp_emojicons() {
+function bareplate_disable_wp_emojicons() {
 
   // all actions related to emojis
   remove_action( 'admin_print_styles', 'print_emoji_styles' );
@@ -122,15 +122,9 @@ function disable_wp_emojicons() {
   remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
   // filter to remove TinyMCE emojis
-  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+  add_filter( 'tiny_mce_plugins', 'bareplate_disable_emojicons_tinymce' );
 }
-add_action( 'init', 'disable_wp_emojicons' );
-
-
-/**
- * Custom Public Methods
- */
-require get_template_directory() . '/inc/methods.php';
+add_action( 'init', 'bareplate_disable_wp_emojicons' );
 
 
 /**
