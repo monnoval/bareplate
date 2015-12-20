@@ -9,14 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+	<header class="entry__header">
+		<?php the_title( '<h2 class="entry__title">', '</h2>' ); ?>
+	</header><!-- .entry__header -->
 
-	<div class="entry-content">
+	<div class="entry__content">
 		<?php the_content(); ?>
-	</div><!-- .entry-content -->
+	</div><!-- .entry__content -->
 
 	<footer class="entry-footer">
 		<?php
@@ -30,5 +30,5 @@
 				'</span>'
 			);
 		?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer><!-- .entry__footer -->
+</article><!-- #post-<?php the_ID(); ?> -->

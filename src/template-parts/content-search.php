@@ -9,22 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+	<header class="entry__header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry__meta">
 			<?php bareplate_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		</div><!-- .entry__meta -->
 		<?php endif; ?>
-	</header><!-- .entry-header -->
+	</header><!-- .entry__header -->
 
-	<div class="entry-summary">
+	<div class="entry__summary">
 		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+	</div><!-- .entry__summary -->
 
-	<footer class="entry-footer">
+	<footer class="entry__footer">
 		<?php bareplate_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer><!-- .entry__footer -->
+</article><!-- #post-<?php the_ID(); ?> -->

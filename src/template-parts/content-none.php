@@ -10,11 +10,11 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'bareplate' ); ?></h1>
-	</header><!-- .page-header -->
+	<header class="page__header">
+		<h1 class="page__title"><?php esc_html_e( 'Nothing Found', 'bareplate' ); ?></h1>
+	</header><!-- .page__header -->
 
-	<div class="page-content">
+	<div class="page__content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
@@ -33,5 +33,5 @@
 				get_search_form();
 
 		endif; ?>
-	</div><!-- .page-content -->
+	</div><!-- .page__content -->
 </section><!-- .no-results -->

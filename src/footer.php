@@ -17,15 +17,17 @@
 		<div class="site--wrapper footer__site--wrapper">
 			<div class="footer__menu js__footer__menu">
 				<nav id="footer-navigation" class="footer__menu-nav" role="navigation">
+					<?php /*/ ?>
 					<?php wp_nav_menu( array(
 						'theme_location' => 'footer',
 						'menu_class' => 'menu__ul',
 						) ); ?>
+					<?php /*/ ?>
 				</nav>
 			</div>
 
 			<div class="footer__legal">
-				<?php _e( '&copy; 2015 Bareplate. All Rights Reserved.', 'bareplate' ) ?>
+				<?php _e( 'Copyright &copy; 2015 Bareplate Theme. Powered by WordPress and Bareplate.', 'bareplate' ) ?>
 			</div>
 		</div>
 

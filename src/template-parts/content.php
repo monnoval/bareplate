@@ -9,24 +9,24 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+	<header class="entry__header">
 		<?php
 			if ( is_single() ) {
-				the_title( '<h2 class="entry-title">', '</h2>' );
+				the_title( '<h2 class="entry__title">', '</h2>' );
 			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h2 class="entry__title"><a class="entry__title__a" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry__meta">
 			<?php bareplate_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		</div><!-- .entry__meta -->
 		<?php
 		endif; ?>
-	</header><!-- .entry-header -->
+	</header><!-- .entry__header -->
 
-	<div class="entry-content">
+	<div class="entry__content">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -41,7 +41,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry__footer">
 		<?php bareplate_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->

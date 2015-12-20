@@ -1,3 +1,27 @@
 // HEADER
 // ==========================================================================
 
+$header-space: 40px;
+
+.header__nav {
+	margin-top: $header-space;
+}
+
+.header__site-name {
+	margin: 0;
+}
+
+.header__site-name__a {
+
+	@include attention( true ) {
+		color: black;
+	}
+}
+
+.header__site-description {
+	margin-bottom: $header-space;
+}
+
+.header__menu {
+	margin-bottom: $header-space;
+}

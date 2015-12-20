@@ -2,31 +2,21 @@
 // ==========================================================================
 
 .site--wrapper {
+	max-width: $base-site-width;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.main__title,
-.main__content {
-  width: 100%;
-}
-
-.main__title {
-  @include margin( bottom, 1rem );
-}
-.main__content {
-  color: $color-gray;
-  background: rgba( $color-gray-lighter, 0.6 );
-  padding: 20px 0;
-}
 
 @media screen and (min-width: 35.5em) { // >= 568px
 }
 
 @media screen and (min-width: 63.750em) { // >= 1020px
-  .site--wrapper {
-    max-width: $base-site-width;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // .site--wrapper {
+  //   max-width: $base-site-width;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 }
 
 

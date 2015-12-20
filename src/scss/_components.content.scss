@@ -16,4 +16,23 @@
 	display: inline;
 }
 
+.post {
+	margin-bottom: 80px;
+}
+
+.entry__title {
+	margin: 0;
+}
+
+.entry__title__a {
+
+	@include attention( true ) {
+		color: black;
+	}
+}
+
+.entry__meta {
+	margin-bottom: 20px;
+	color: $color-gray;
+}
 

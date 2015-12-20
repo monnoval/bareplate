@@ -27,9 +27,11 @@
 			<div class="site--wrapper clearfix">
 
 				<div class="header__site-info">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header__site-info-a">
-						<?php bloginfo( 'name' ) ?>
-					</a>
+					<h1 class="header__site-name">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header__site-name__a">
+							<?php bloginfo( 'name' ) ?>
+						</a>
+					</h1>
 					<div class="header__site-description">
 						<?php bloginfo( 'description' ) ?>
 					</div>
@@ -46,4 +48,4 @@
 
 	</header><!-- .site__header -->
 
-	<div id="content" class="site__content">
+	<div id="content" class="site__content site--wrapper">
