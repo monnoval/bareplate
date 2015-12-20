@@ -21,22 +21,29 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<header id="masthead" class="header" role="banner">
+	<header id="header" class="header site__header" role="banner">
 
 		<div class="header__nav">
 			<div class="site--wrapper clearfix">
-				<div class="header__logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header__logo-a">
+
+				<div class="header__site-info">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header__site-info-a">
+						<?php bloginfo( 'name' ) ?>
 					</a>
+					<div class="header__site-description">
+						<?php bloginfo( 'description' ) ?>
+					</div>
 				</div>
+
 				<div class="header__menu header__menu--primary js__header__menu_primary">
 					<nav id="site-navigation" class="header__menu-nav header__menu-nav--primary" role="navigation">
 						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'menu__ul', ) ) ?>
 					</nav>
 				</div>
+
 			</div>
 		</div>
 
-	</header><!-- #masthead -->
+	</header><!-- .site__header -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site__content">

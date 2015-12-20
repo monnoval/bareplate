@@ -2,10 +2,12 @@
 // ==========================================================================
 
 a {
-  color: $color-gray;
+  color: $color-base-link;
+  text-decoration: none;
 
   transition: 0.2s;
   @include attention() {
-    color: $color-gray-darker;
+    color: $color-base-link-hover;
+    text-decoration: underline;
   }
 }

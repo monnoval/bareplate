@@ -20,34 +20,31 @@ div.menu__ul > ul {
 }
 
 .menu__ul .menu-item {
-  border-right: 1px solid $color-gray-ccc;
-  padding-right: 3px;
+  border: 1px solid $color-gray-ccc;
   display: inline-block;
+  margin-right: 15px;
   position: relative;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
+
 .menu__ul .menu-item a {
-  // color: #141412;
+  color: $color-base-txt;
   display: block;
-  @include font-size( 15px, 1 );
-  padding: 15px 20px;
+  font-size: 14px;
+  padding: 5px 20px;
   text-decoration: none;
 }
 
-.menu__ul .menu-item:last-child {
-  border: 0 none;
-  padding-right: 0;
-
-  a {
-    padding-right: 0;
-  }
-}
 
 .menu__ul .menu-item:hover > a,
 .menu__ul .menu-item a:hover,
 .menu__ul .menu-item:focus > a,
 .menu__ul .menu-item a:focus {
-  // color: $color-menu-link--active;
+  text-decoration: underline;
 }
 
 .menu__ul .sub-menu,
@@ -100,71 +97,6 @@ ul.menu__ul .focus > ul,
 .menu__ul .current-menu-item > a,
 .menu__ul .current-menu-ancestor > a {
   // color: $color-menu-link--active;
-}
-
-
-// Menu Modifiers
-// ==========================================================================
-
-.header__menu--primary {
-  display: none;
-  float: left;
-  width: auto;
-}
-
-.header__menu-nav--primary .menu-item > a {
-  padding: 5px 10px;
-  @include font-size( 12px );
-  @include font-weight( bold );
-  text-transform: uppercase;
-}
-
-.header__menu--secondary {
-  float: right;
-  line-height: 2;
-}
-
-.header__menu-nav--secondary .menu-item {
-  margin-right: 5px;
-}
-
-.header__menu-nav--secondary .menu-item a {
-  padding: 0;
-  padding-right: 5px;
-  @include font-size( 12px, 1.2 );
-}
-
-.header__menu-nav--secondary .menu-item a:hover {
-  text-decoration: underline;
-}
-
-.footer__menu {
-  @include margin( bottom, 0.4rem );
-}
-
-.footer__menu-nav .menu-item a {
-  padding: 0 10px;
-}
-
-.footer__menu-nav .menu-item:first-child a {
-  padding-left: 0;
-  @include font-size( 13px, 1.2 );
-}
-
-.footer__menu-nav .menu-item:nth-last-child(2) {
-  border: 0 none;
-}
-
-
-// Media Queries
-// ==========================================================================
-
-@media screen and (min-width: 63.750em) { // >= 1020px
-  .header__menu--primary {
-    display: block;
-    padding-top: 28px;
-    padding-left: 6px;
-  }
 }
 
 

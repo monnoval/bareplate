@@ -13,9 +13,10 @@ $color-gray-ccc:     lighten($color-gray-light, 20%) !default; // #ccc
 
 // Base
 
-$color-base-bg:     #fff !default;
-$color-base-txt:    #000 !default;
-
+$color-base-bg:         #fff    !default;
+$color-base-txt:        #000    !default;
+$color-base-link:       #21759b !default;
+$color-base-link-hover: #d54e21 !default;
 
 
 

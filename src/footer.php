@@ -10,26 +10,28 @@
  */
 
 ?>
+	</div><!-- .site__content -->
 
-	</div><!-- #content -->
+	<footer class="footer site__footer" role="contentinfo">
 
-	<footer id="colophon" class="footer" role="contentinfo">
 		<div class="site--wrapper footer__site--wrapper">
-				<div class="footer__menu js__footer__menu">
-					<nav id="footer-navigation" class="footer__menu-nav" role="navigation">
+			<div class="footer__menu js__footer__menu">
+				<nav id="footer-navigation" class="footer__menu-nav" role="navigation">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'footer',
 						'menu_class' => 'menu__ul',
-						'fallback_cb' => false
-					) ); ?>
-					</nav><!-- #footer-navigation -->
-				</div>
+						) ); ?>
+				</nav>
+			</div>
+
 			<div class="footer__legal">
-				<?php _e( '&copy; 2015 Bareplate. All Rights Reserved', 'bareplate' ) ?>
+				<?php _e( '&copy; 2015 Bareplate. All Rights Reserved.', 'bareplate' ) ?>
 			</div>
 		</div>
-	</footer>
-</div><!-- #page -->
+
+	</footer><!-- .site__footer -->
+
+</div><!-- .site -->
 
 <?php wp_footer(); ?>
 
