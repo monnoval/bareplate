@@ -26,4 +26,26 @@ hr {
 }
 
 
+blockquote {
+  margin: 0 2.5em;
+  font-style: italic;
+  color: $color-gray;
+}
+
+abbr {
+	cursor: help;
+}
+
+acronym {
+	text-transform: uppercase;
+	border-bottom: 1px dashed #666;
+	cursor: help;
+}
+
+/* Delete and insert */
+ins, dfn {
+	font-style: italic;
+	text-decoration: none;
+	border-bottom: 1px solid #666;
+}
 
