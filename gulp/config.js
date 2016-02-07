@@ -1,11 +1,9 @@
-var proxy   = 'project.dev/';
-
 module.exports = {
   source:  './src/',
   bower:   './bower/',
   dev:     './build-dev/',
   prod:    './build-prod/',
-  proxy:   proxy,
+  proxy:   'bareplate.dev/',
   site: {
     host: "your.host.name",
     user: "yourUsername",

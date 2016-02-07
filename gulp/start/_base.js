@@ -1,6 +1,6 @@
 source   = require('../config').source;
 replace  = require('gulp-replace');
-origname = "bare";
+origname = "bareplate";
 
 str_replace = function (str, find, replace) {
 	return str.replace(new RegExp(find, 'g'), replace);
