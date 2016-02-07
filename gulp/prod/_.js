@@ -1,5 +1,5 @@
 source = require('../config').source;
-build  = require('../config').dist;
+prod  = require('../config').prod;
 bower  = require('../config').bower;
 tpl    = [];
 tasks  = [ 'core-css'

@@ -12,25 +12,25 @@ gulp.task('mobile', ['mobile-js', 'mobile-style-css', 'mobile-css' ]);
 gulp.task('mobile-css',  function() {
   return gulp.src([source+mobile_css+'*.scss', '!'+source+mobile_css+'_*.scss'])
     .pipe(mobile_sass().on('error', on_error))
-    .pipe(gulp.dest(build+mobile_css))
+    .pipe(gulp.dest(dev+mobile_css))
     .pipe(browserSync.stream());
 });
 
 gulp.task('mobile-style-css', function() {
   return gulp.src(source+mobile+'*.css')
-  .pipe(gulp.dest(build+mobile))
+  .pipe(gulp.dest(dev+mobile))
   .pipe(browserSync.stream());
 });
 
 
 gulp.task('mobile-js', function() {
   return gulp.src(source+mobile+'**/*.js')
-  .pipe(gulp.dest(build+mobile))
+  .pipe(gulp.dest(dev+mobile))
   .pipe(browserSync.stream());
 });
 
 gulp.task('mobile-languages', function() {
   return gulp.src(source+mobile_lang+'**/*')
-  .pipe(gulp.dest(build+mobile_lang));
+  .pipe(gulp.dest(dev+mobile_lang));
 });
 

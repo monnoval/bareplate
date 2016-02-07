@@ -2,8 +2,8 @@
 gulp.task('replace-enqueue', function(){
 
   var replace = require('gulp-replace');
-  gulp.src(source+'inc/enqueue.php')
-    .pipe(replace(/\$bareplate_minify \= false/g, '$bareplate_minify = true'))
-    .pipe(gulp.dest(build+'inc'));
+  gulp.src(source+'inc/bare-assets.php')
+    .pipe(replace(/\$bare_minify \= false/g, '$bare_minify = true'))
+    .pipe(gulp.dest(prod+'inc'));
 
 });

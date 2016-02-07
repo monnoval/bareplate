@@ -1,18 +1,15 @@
-var project = 'bareplate'
-  , proxy   = project + '.dev'
-;
+var proxy   = 'project.dev/';
 
 module.exports = {
-  project: project,
   source:  './src/',
   bower:   './bower/',
-  build:   './build/',
-  dist:    './dist/',
+  dev:     './build-dev/',
+  prod:    './build-prod/',
   proxy:   proxy,
   site: {
     host: "your.host.name",
     user: "yourUsername",
     key: "/path/to/your/.ssh/key",
-    remotePath: "/remote/path/wp-content/theme/" + project
+    remotePath: "/remote/path/wp-content/theme/project"
   }
 };

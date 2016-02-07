@@ -1,8 +1,8 @@
 gulp.task('upload', function () {
   var sftp = require('gulp-sftp');
-  var dist = require('../config').dist;
+  var prod = require('../config').prod;
   var site = require('../config').site;
 
-  return gulp.src(dist+'**/*')
+  return gulp.src(prod+'**/*')
     .pipe(sftp(site));
 });

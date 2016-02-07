@@ -18,26 +18,26 @@ run_tpl_task = function() {
     run_css_task(
         dir+'-css'
       , [source+dir+'/'+dir+'.scss', '!'+source+dir+'/_*.scss'] // Ignore partials
-      , build+ dir
+      , prod+ dir
     );
 
     run_js_min_task(
         dir+'-js-min'
       , [dir+'-js']
-      , [build+ dir +'/*.js', '!'+build+ dir +'/*.min.js']
-      , build+ dir +'/'
+      , [prod+ dir +'/*.js', '!'+prod+ dir +'/*.min.js']
+      , prod+ dir +'/'
     );
 
     run_js_task(
         dir+'-js'
       , source+ dir +'/'+ dir +'.js'
-      , build+ dir
+      , prod+ dir
     );
 
     run_php_task(
         dir+'-php'
       , source+dir+'/'+dir
-      , build+ dir
+      , prod+ dir
     );
 
   }
